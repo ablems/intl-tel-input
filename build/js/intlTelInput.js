@@ -508,6 +508,8 @@
         // check if need to select a new flag based on the given number
         // Note: called from _setInitialState, keyup handler, setNumber
         _updateFlagFromNumber: function(number, isInit) {
+            this.telInput.toggleClass('placeholder', !number);
+
             // if we're in nationalMode and we already have US/Canada selected, make sure the number starts with a +1 so _getDialCode will be able to extract the area code
             // update: if we dont yet have selectedCountryData, but we're here (trying to update the flag from the number), that means we're initialising the plugin with a number that already has a dial code, so fine to ignore this bit
             if (number && this.options.nationalMode && this.selectedCountryData && this.selectedCountryData.dialCode == "1" && number.charAt(0) != "+") {

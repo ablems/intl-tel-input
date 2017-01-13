@@ -68,7 +68,9 @@ $mobilePopupMargin: 30px;
   }
 
   // specify types to increase specificity e.g. to override bootstrap v2.3
-  input, input[type=text], input[type=tel] {
+  input,
+  input[type=text],
+  input[type=tel] {
     position: relative;
     // input is bottom level, below selected flag and dropdown
     z-index: 0;
@@ -99,6 +101,18 @@ $mobilePopupMargin: 30px;
     right: 0;
     // prevent the highlighted child from overlapping the input border
     padding: $borderWidth;
+  }
+
+  .placeholder,
+  input,
+  input[type=text],
+  input[type=tel] {
+    &::-moz-placeholder {
+      color: $greyText !important;   // Firefox
+      opacity: 1 !important;
+    } // See https://github.com/twbs/bootstrap/pull/11526
+    &:-ms-input-placeholder { color: $greyText !important; } // Internet Explorer 10+
+    &::-webkit-input-placeholder  { color: $greyText !important; } // Safari and Chrome
   }
 
   .selected-flag {
